@@ -1,0 +1,53 @@
+﻿@model MVC.Models.MvcCompanyModel
+
+@{
+    ViewBag.Title = "AddOrEdit";
+}
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<div class="form-body">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name)
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Exchange)
+            @Html.EditorFor(model => model.Exchange)
+            @Html.ValidationMessageFor(model => model.Exchange)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.StockTicker)
+            @Html.EditorFor(model => model.StockTicker)
+            @Html.ValidationMessageFor(model => model.StockTicker)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Isin)
+            @Html.EditorFor(model => model.Isin)
+            @Html.ValidationMessageFor(model => model.Isin)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Url)
+            @Html.EditorFor(model => model.Url)
+            @Html.ValidationMessageFor(model => model.Url)
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn button" />
+            <input type="reset" value="Reset" class="btn button" />
+        </div>
+    }
+</div>
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+}
